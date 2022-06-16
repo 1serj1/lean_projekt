@@ -25,6 +25,7 @@ window.addEventListener(`DOMContentLoaded`,() =>{
   
            hideTabContent();
            showTabContent(); // вызов фуий
+           //console.log(  item.classList.add(`hide`)); // вызов фуий
            
            tabsParent.addEventListener(`click`, (e) => { // обработчик события 
                       const target = e.target;  // техн. переменная, что бы не писать e.target порстоянно
