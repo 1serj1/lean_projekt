@@ -10,6 +10,7 @@ window.addEventListener(`DOMContentLoaded`,() =>{
                   item.classList.add(`hide`); // добавили класс элементов hide - удалено (из выдачи браузера)
                   item.classList.remove(`show`,`fade`); // один класс добавляем, другой - удаляем
                   // toggle  не добавляется, что бы не было путаницы
+                   //fade - класс CSS, отвечающий за анимацию.
             });
             tabs.forEach(item => {
                 item.classList.remove(`tabheader__item_active`);  // удалили элемент `tabheader__item_active` в  tabsContent
