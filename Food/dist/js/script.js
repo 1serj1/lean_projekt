@@ -6,7 +6,10 @@ window.addEventListener(`DOMContentLoaded`,() =>{
          
         function hideTabContent()  {
             tabsContent.forEach(item => {
-                   item.style.display = `none`;  // скрыли элементы tabsContent
+                  // item.style.display = `none`;  // скрыли элементы tabsContent  - bpyfxfkmyj
+                  item.classList.add(`hide`);
+                  item.classList.remove(`show`); // один класс добавляем, другой - удаляем
+                  // toggle  не добавляется, что бы не было путаницы
             });
             tabs.forEach(item => {
                 item.classList.remove(`tabheader__item_active`);  // удалили элементы tabsContent
@@ -14,8 +17,10 @@ window.addEventListener(`DOMContentLoaded`,() =>{
         }  
         
         function showTabContent(i = 0)  { // задаем по умолчанию запуск с 1 элемента
-              tabsContent [i].style.display = ``;  // показали элементы tabsContent
-              tabs[i].classList.add(`tabheader__item_active`);  // дописали элементы tabsContent
+             // tabsContent [i].style.display = ``;  // показали элементы tabsContent - первоначальный вариант
+             tabsContent [i].classList.add(`show`);
+             tabsContent [i].classList.remove(`hide`);
+             tabs[i].classList.add(`tabheader__item_active`);  // дописали элементы tabsContent
            }
   
            hideTabContent();
