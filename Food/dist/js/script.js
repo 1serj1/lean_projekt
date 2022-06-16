@@ -23,8 +23,16 @@ window.addEventListener(`DOMContentLoaded`,() =>{
            
            tabsParent.addEventListener(`click`, (e) => { // обработчик события 
                       const target = e.target;  // техн. переменная, что бы не писать e.target порстоянно
-                      if (target && target.classList.contains(`tabheader__item`) )
-           })
+                      if (target && target.classList.contains(`tabheader__item`)) { // если цель имеет tabheader__item
+                            tabs.forEach((item,i) =>{  // перебираем массив элементов
+                                   if (target == item){  // цель - это элемент
+                                          hideTabContent();
+                                          showTabContent(i);   // запускаем фуии, при этом на эл-те i  запускаем показ
+                                   }
+                            });
+
+                      }
+           });
 
 
 
