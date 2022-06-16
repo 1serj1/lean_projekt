@@ -8,7 +8,7 @@ window.addEventListener(`DOMContentLoaded`,() =>{
             tabsContent.forEach(item => {  // перебираем элементы в объекте   tabsContent = document.querySelectorAll(`.tabcontent`),
                   // item.style.display = `none`;  //  исключили элементы tabsContent  
                   item.classList.add(`hide`); // добавили класс элементов hide - удалено (из выдачи браузера)
-                  item.classList.remove(`show`); // один класс добавляем, другой - удаляем
+                  item.classList.remove(`show`,`fade`); // один класс добавляем, другой - удаляем
                   // toggle  не добавляется, что бы не было путаницы
             });
             tabs.forEach(item => {
@@ -18,7 +18,7 @@ window.addEventListener(`DOMContentLoaded`,() =>{
         // как итог убрали элементы с классом CSS .hide
         function showTabContent(i = 0)  { // задаем по умолчанию запуск с 1 элемента
              // tabsContent [i].style.display = ``;  // показали элементы tabsContent - первоначальный вариант
-             tabsContent [i].classList.add(`show`); // в итом элемете массива tabsContent = document.querySelectorAll(`.tabcontent`), добавляем класс show
+             tabsContent [i].classList.add(`show`,`fade`); // в итом элемете массива tabsContent = document.querySelectorAll(`.tabcontent`), добавляем класс show и fade
              tabsContent [i].classList.remove(`hide`);// в итом элемете массива tabsContent = document.querySelectorAll(`.tabcontent`), удаляем класс hide
              tabs[i].classList.add(`tabheader__item_active`);  // дописали элементы tabsContent в итый элемент
            }
