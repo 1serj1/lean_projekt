@@ -7,8 +7,8 @@ window.addEventListener(`DOMContentLoaded`,() =>{
         function hideTabContent()  {
             tabsContent.forEach(item => {
                   // item.style.display = `none`;  // скрыли элементы tabsContent  - bpyfxfkmyj
-                  item.classList.add(`hide`);
-                  item.classList.remove(`show`); // один класс добавляем, другой - удаляем
+                  item .classList.add(`hide`);
+                  item .classList.remove(`show`); // один класс добавляем, другой - удаляем
                   // toggle  не добавляется, что бы не было путаницы
             });
             tabs.forEach(item => {
