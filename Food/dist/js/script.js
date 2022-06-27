@@ -124,6 +124,17 @@ function setClock(selector, endtime) {
 
 setClock (`.timer`, deadLine);
 
+//  ВАЖНО!!! Работа с окном юзера: вызов и т.п.   MODAL
+
+const  modalTrigger = document.querySelector(`[data-modal]`),
+        modal = document.querySelector(`.modal`),
+        modalCloseBtn  = document.querySelector(`[data-modal]`);
+
+        modalTrigger.addEventListener(`click`, () => {
+              modal.classList.add(`show`);
+              modal.classList.remove(`hide`);
+        });
+
 
 
 
