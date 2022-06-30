@@ -126,14 +126,86 @@ setClock (`.timer`, deadLine);
 
 //  ВАЖНО!!! Работа с окном юзера: вызов и т.п.   MODAL
 
-const  modalTrigger = document.querySelector(`[data-modal]`),
-        modal = document.querySelector(`.modal`),
-        modalCloseBtn  = document.querySelector(`[data-modal]`);
 
-        modalTrigger.addEventListener(`click`, () => {
-              modal.classList.add(`show`);
-              modal.classList.remove(`hide`);
+// первоначальный вариант
+
+
+// const  modalTrigger = document.querySelector(`[data-modal]`), // [data-modal] = первый элементс этим атрибутом
+//         modal = document.querySelector(`.modal`),
+//         modalCloseBtn  = document.querySelector(`[data-close]`);
+
+
+        // выбираем элементы
+
+
+       //  modalTrigger.addEventListener(`click`, () => {
+       //        modal.classList.add(`show`);
+       //        modal.classList.remove(`hide`);
+       //        // по клику добавляем или удаляем элементы
+       //        document.body.style.overflow = `hidden`;
+       //        // добавляем CSS стиль hidden, запрещающий прокрутку неактивировангных элементов
+       //        // overflow: hidden  Контент обрезается, без предоставления прокрутки
+       //         // hidden - спрятанный,hide - прятать
+       
+       // });
+
+
+
+       // modalCloseBtn.addEventListener(`click`, () => {
+       //        modal.classList.add(`hide`);
+       //        modal.classList.remove(`show`);
+       //  });
+// по клику добавляем или удаляем элементы наоборот
+// не работает с CSS  display: "" - только с display: block
+
+
+// ПОТОМ
+const  modalTrigger = document.querySelectorAll(`[data-modal]`), // [data-modal] = все элементы с этим атрибутом
+        modal = document.querySelector(`.modal`),
+        modalCloseBtn  = document.querySelector(`[data-close]`);
+
+        modalTrigger.forEach(btn => {
+              // цикл переборав кнопок
+              btn.addEventListener(`click`, () => {
+                     //        // по клику добавляем или удаляем элементы
+                     modal.classList.toggle(`show`);
+                     // если есть - добавляем, если нет - удаляем
+                     document.body.style.overflow = `hidden`;  
+              });
+          
+       });
+
+       // ВАЖНО!!! Что бы не плодить одинаковый код, повторяющую часть делаем функцией
+       
+       function closeModal () {
+              modal.classList.toggle(`show`);
+              document.body.style.overflow = ``;  
+       }
+
+       modalCloseBtn.addEventListener(`click`, closeModal);
+       // используем closeModal  после клика
+       
+        // если юзер просто кликнул на странице
+        modal.addEventListener(`click`, (e) => {
+              // если е событие произошло на modal элементе
+              //  е событие ОБЯЗАТЕЛЬНО задавать (e), если нет - это фуууу, но может работать, но не везде
+              if (e.target ===  modal)
+              closeModal ();
+               // вызываем closeModal  после клика И УСЛОВИЯ
         });
+   
+
+        //ВАЖНО!!!  если нажать Escape - отключение модалок, список названий клавиш - в поисковике
+        document.addEventListener(`keydown`, (e) => { 
+              if (e.code ===  "Escape" &&  modal.classList.contains(`show`)){
+              // &&  - и!  modal.classList.contains(`show`) - окно открыто
+              closeModal ();
+               // вызываем closeModal  после клика И УСЛОВИЯ
+              }
+        });
+
+
+
 
 
 
